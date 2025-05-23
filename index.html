@@ -1,5 +1,6 @@
 <script src="http://www.google.com/jsapi" type="text/javascript"></script>
 <script type="text/javascript">google.load("jquery", "1.3.2");</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 <style type="text/css">
 	body {
@@ -101,6 +102,10 @@
 		margin-right: 30px;
 		margin-bottom: 5px;
 	}
+
+  .mjx-i {
+    font-size: 90%;
+  }
 
 	.vert-cent {
 		position: relative;
@@ -253,6 +258,9 @@
 					<center>
 						<img class="round" style="width:1000px" src="./resources/archv2.png"/>
 					</center>
+        <br>
+          Overview of the training pipeline. 
+    (a) First \(k\)  audio files are randomly selected from the training set, and STFT features for \(l\) consecutive short frames are extracted \(S^1 \dots S^k\). (b) Each batch is formed in a way that consecutive frames appear sequentially, and \(b=k \times l\). (c) The output of the AEC model is the enhanced audio per short frame. (d)  Inverse STFT is applied on each short frame separately to obtain their reconstructed waveforms. (e) \(l\) consecutive waveforms that belong to the same audio are concatenated together to form a long waveform. (f) STFT is applied on the long sample which is used for loss calculation.  In the regular non-extened setup, loss calculation is performed at stage (c) on predicted short audio frames.
 				</td>
 			</tr>
 		</table>
